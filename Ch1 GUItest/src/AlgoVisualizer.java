@@ -35,7 +35,7 @@ public class AlgoVisualizer {
         });
     }
 
-    // 动画逻辑
+    // 动画逻辑 重要
     private void run() {
         while (true) {
             frame.Render(circles);
