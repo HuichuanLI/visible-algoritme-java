@@ -17,6 +17,15 @@ simple example of java swing
 ## Chapitre 3 随机问题（蒙特卡洛）
 使用蒙特卡洛算法计算 圆周率 通过正方形和圆形面积比值
 ![蒙特卡洛](4.gif)
+最后能算出 ：3.147878787878788
+
+## Chapitre 5 排序可视化
+
+### 选择排序
+
+![选择排序 selection sort](5.gif)
+
+
 
 
 

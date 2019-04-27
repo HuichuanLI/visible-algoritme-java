@@ -1,9 +1,5 @@
-import javafx.scene.shape.Circle;
-
 import java.awt.*;
-import java.util.LinkedList;
 import javax.swing.*;
-
 
 public class AlgoFrame extends JFrame {
 
@@ -41,14 +37,15 @@ public class AlgoFrame extends JFrame {
     }
 
     // TODO: 设置自己的数据
-    private MonteCarolePiData monteCarolePiData;
+    private SelectionSort data;
 
-    public void render(MonteCarolePiData monteCarolePiData) {
-        this.monteCarolePiData = monteCarolePiData;
+    public void render(SelectionSort data) {
+        this.data = data;
         repaint();
     }
 
     private class AlgoCanvas extends JPanel {
+
         public AlgoCanvas() {
             // 双缓存
             super(true);
@@ -67,23 +64,14 @@ public class AlgoFrame extends JFrame {
             hints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
             g2d.addRenderingHints(hints);
 
+            // 具体绘制
+            // TODO： 绘制自己的数据data
+            int w = canvasWidth / data.N();
+            AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
+            for (int i = 0; i < data.N(); i++) {
+                AlgoVisHelper.fillRectangle(g2d, i * w + 1, canvasHeight - data.get(i), w - 1, data.get(i));
 
-            AlgoVisHelper.setStrokeWidth(g2d, 3);
-            AlgoVisHelper.setColor(g2d, AlgoVisHelper.Blue);
-
-
-            AlgoVisHelper.strokeCircle(g2d, monteCarolePiData.getCircle().getX(), monteCarolePiData.getCircle().getY(), monteCarolePiData.getCircle().getR());
-
-            for (int i = 0; i < monteCarolePiData.getPointsNumber(); i++) {
-                Point p = monteCarolePiData.getPoint(i);
-                if (monteCarolePiData.getCircle().contain(p)) {
-                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.Red);
-                } else {
-                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.Blue);
-                }
-                AlgoVisHelper.strokeCircle(g2d, p.x, p.y, 3);
             }
-
         }
 
         @Override

@@ -9,10 +9,11 @@ import java.util.LinkedList;
 
 public class AlgoVisualizer {
 
-    private circle circle;
-    private LinkedList<Point> points;
+    private MonteCarolePiData monteCarolePiData;
     private AlgoFrame frame;    // 视图 view
     private int N;
+
+    private int insisecircle = 0;
 
     public AlgoVisualizer(int sceneWidth, int sceneHeight, int N) {
 
@@ -22,8 +23,8 @@ public class AlgoVisualizer {
         // 初始化数据
         // TODO: 初始化数据
 
-        circle = new circle(sceneHeight / 2, sceneHeight / 2, sceneHeight / 2);
-        points = new LinkedList<>();
+        this.monteCarolePiData = new MonteCarolePiData(new circle(sceneHeight / 2, sceneHeight / 2, sceneHeight / 2));
+
 
         this.N = N;
         // 初始化视图
@@ -39,14 +40,24 @@ public class AlgoVisualizer {
     private void run() {
 
         for (int i = 0; i < N; i++) {
-            frame.render(circle,points);
-            AlgoVisHelper.pause(10);
-            int  x = (int)(Math.random()*frame.getCanvasHeight());
-            int  y = (int)(Math.random()*frame.getCanvasHeight());
+            frame.render(this.monteCarolePiData);
 
-            Point p = new Point(x,y);
-            points.add(p);
 
+            if (i % 100 == 0) {
+                double piestimation = monteCarolePiData.estimatePi();
+                System.out.println(piestimation);
+                AlgoVisHelper.pause(10);
+
+            }
+
+            int x = (int) (Math.random() * frame.getCanvasHeight());
+            int y = (int) (Math.random() * frame.getCanvasHeight());
+
+            Point p = new Point(x, y);
+            monteCarolePiData.addPoint(p);
+            if (monteCarolePiData.getCircle().contain(p)) {
+                insisecircle++;
+            }
         }
     }
 
@@ -57,6 +68,6 @@ public class AlgoVisualizer {
         int sceneHeight = 800;
 
         // TODO: 根据需要设置其他参数，初始化visualizer
-        AlgoVisualizer visualizer = new AlgoVisualizer(sceneWidth, sceneHeight,10000);
+        AlgoVisualizer visualizer = new AlgoVisualizer(sceneWidth, sceneHeight, 10000);
     }
 }
