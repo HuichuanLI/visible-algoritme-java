@@ -40,25 +40,35 @@ public class AlgoVisualizer {
     private void run() {
         while (true){
             frame.render(data);
-            AlgoVisHelper.pause(10);
+            AlgoVisHelper.pause(2);
             if(run1){
 
                 for (int i = 0; i < data.N(); i++) {
                     int min = data.get(i);
                     int postion = i;
+                    data.orderedIndex = i-1;
+
                     for (int j = i + 1; j < data.N(); j++) {
+                        data.currentCompareIndex = j;
                         if (data.get(j) < min) {
                             min = data.get(j);
+
                             postion = j;
                         }
+                        data.currentMinindex = postion;
+                        frame.render(data);
+                        AlgoVisHelper.pause(2);
                     }
                     data.swap(postion, i);
                     frame.render(data);
-                    AlgoVisHelper.pause(10);
+                    AlgoVisHelper.pause(2);
                 }
-
+                data.orderedIndex = data.N();
+                data.currentCompareIndex = -1;
+                data.currentMinindex = -1;
                 frame.render(data);
-                AlgoVisHelper.pause(10);
+                AlgoVisHelper.pause(2);
+                break;
             }
         }
 

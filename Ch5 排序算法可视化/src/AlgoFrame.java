@@ -69,6 +69,17 @@ public class AlgoFrame extends JFrame {
             int w = canvasWidth / data.N();
             AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
             for (int i = 0; i < data.N(); i++) {
+
+                if(i <data.orderedIndex){
+                    AlgoVisHelper.setColor(g2d,AlgoVisHelper.Red);
+                }else{
+                    AlgoVisHelper.setColor(g2d,AlgoVisHelper.Grey);
+                    if(i == data.currentMinindex){
+                        AlgoVisHelper.setColor(g2d,AlgoVisHelper.LightBlue);
+                    }
+                    if(i == data.currentCompareIndex)
+                        AlgoVisHelper.setColor(g2d,AlgoVisHelper.Indigo);
+                }
                 AlgoVisHelper.fillRectangle(g2d, i * w + 1, canvasHeight - data.get(i), w - 1, data.get(i));
 
             }

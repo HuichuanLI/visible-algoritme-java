@@ -1,6 +1,11 @@
 public class SelectionSort {
     private int[] numbers;
 
+    public  int orderedIndex = -1;
+    public int currentMinindex = -1;
+    public int currentCompareIndex = -1;
+
+
     public SelectionSort(int N, int randomBound) {
         numbers = new int[N];
 
