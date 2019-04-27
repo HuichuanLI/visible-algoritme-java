@@ -77,8 +77,12 @@ public class AlgoFrame extends JFrame {
             AlgoVisHelper.setStrokeWidth(g2d, 1);
             AlgoVisHelper.setColor(g2d, Color.red);
 
-            for (Circle circle : circles)
-                AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+            for (Circle circle : circles){
+                if(circle.isFilled == false)
+                    AlgoVisHelper.strokeCircle(g2d, circle.x, circle.y, circle.getR());
+                else
+                    AlgoVisHelper.fillCircle(g2d, circle.x, circle.y, circle.getR());
+            }
 
         }
 

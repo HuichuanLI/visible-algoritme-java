@@ -1,7 +1,5 @@
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 
 // model
 
@@ -26,7 +24,10 @@ public class AlgoVisualizer {
         // 事件分发线程
         EventQueue.invokeLater(() -> {
             frame = new AlgoFrame("Welcome", sceneWidth, sceneHeigth);
+            // 添加事件
             frame.addKeyListener(new AlgokeyListener());
+
+            frame.addMouseListener(new AlgoMouseListener());
             new Thread(() -> {
                 run();
             }).start();
@@ -53,6 +54,23 @@ public class AlgoVisualizer {
             if(event.getKeyChar() == ' '){
                 isanimated = !isanimated;
             }
+        }
+    }
+
+    private class AlgoMouseListener extends MouseAdapter{
+        @Override
+        public void mousePressed(MouseEvent event){
+
+            //System.out.println(event.getPoint());
+            event.translatePoint(0,
+                    -(frame.getBounds().height - frame.getCanvasHeigth()));
+
+            for(Circle circle:circles){
+                if(circle.contain(event.getPoint())){
+                    circle.isFilled = !circle.isFilled;
+                }
+            }
+
         }
     }
 
