@@ -8,3 +8,5 @@ GUItest/\.idea/
 \.idea/workspace\.xml
 
 \.idea/
+
+*.class

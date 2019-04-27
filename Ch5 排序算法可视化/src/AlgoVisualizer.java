@@ -59,6 +59,7 @@ public class AlgoVisualizer {
                         frame.render(data);
                         AlgoVisHelper.pause(2);
                     }
+
                     data.swap(postion, i);
                     frame.render(data);
                     AlgoVisHelper.pause(2);
