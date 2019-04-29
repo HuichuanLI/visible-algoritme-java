@@ -26,27 +26,26 @@ public class AlgoVisualizer {
         });
     }
 
-    private class AlgoKeyListener extends KeyAdapter{
+    private class AlgoKeyListener extends KeyAdapter {
         @Override
-        public void keyReleased(KeyEvent event){
-            if(event.getKeyChar() == ' '){
+        public void keyReleased(KeyEvent event) {
+            if (event.getKeyChar() == ' ') {
                 run1 = true;
             }
         }
     }
 
-
     // 动画逻辑
     private void run() {
-        while (true){
+        while (true) {
             frame.render(data);
             AlgoVisHelper.pause(2);
-            if(run1){
+            if (run1) {
 
                 for (int i = 0; i < data.N(); i++) {
                     int min = data.get(i);
                     int postion = i;
-                    data.orderedIndex = i-1;
+                    data.orderedIndex = i - 1;
 
                     for (int j = i + 1; j < data.N(); j++) {
                         data.currentCompareIndex = j;
@@ -75,14 +74,12 @@ public class AlgoVisualizer {
 
     }
 
-
-
     public static void main(String[] args) {
 
         int sceneWidth = 800;
         int sceneHeight = 800;
 
         // TODO: 根据需要设置其他参数，初始化visualizer
-        AlgoVisualizer visualizer = new AlgoVisualizer(sceneWidth, sceneHeight,100);
+        AlgoVisualizer visualizer = new AlgoVisualizer(sceneWidth, sceneHeight, 100);
     }
 }

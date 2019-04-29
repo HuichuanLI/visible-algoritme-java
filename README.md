@@ -24,6 +24,7 @@ simple example of java swing
 ### 选择排序
 
 ![选择排序 selection sort](6.gif)
+![插入排序 insertion sort](7.gif)
 
 
 
