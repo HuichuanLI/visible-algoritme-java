@@ -27,7 +27,10 @@ simple example of java swing
 ### 插入排序
 ![插入排序 insertion sort](7.gif)
 ### 归并排序
-![归并排序 merge  sort](8.gif)
+自顶向下
+![归并排序自顶向下 merge  sort](8.gif)
+自底向上
+![归并排序自底向上 merge  sort](9.gif)
 
 
 

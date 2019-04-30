@@ -35,10 +35,24 @@ public class AlgoVisualizer {
 
         // TODO: 编写自己的动画逻辑
 
+//        自顶向下
+//        while (true) {
+//            setData(-1, -1, -1);
+//            if (run1) {
+//                mergeSort(0, data.N() - 1);
+//                setData(0, data.N() - 1, data.N() - 1);
+//                break;
+//            }
+//        }
+//        自底向上
         while (true) {
             setData(-1, -1, -1);
             if (run1) {
-                mergeSort(0, data.N() - 1);
+                for (int sz = 1; sz < data.N(); sz *= 2) {
+                    for (int i = 0; i < data.N() - sz; i+=sz+sz) {
+                        merge(i, i + sz - 1, Math.min(i + sz + sz - 1, data.N() - 1));
+                    }
+                }
                 setData(0, data.N() - 1, data.N() - 1);
                 break;
             }
@@ -106,7 +120,7 @@ public class AlgoVisualizer {
         data.mergeIndex = mergeIndex;
 
         frame.render(data);
-        AlgoVisHelper.pause(10);
+        AlgoVisHelper.pause(3);
     }
 
 
