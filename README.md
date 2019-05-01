@@ -33,6 +33,8 @@ simple example of java swing
 ![归并排序自底向上 merge  sort](9.gif)
 ### 冒泡排序
 ![冒牌排序 bubble  sort](10.gif)
+###  快速排序
+![快速排序 quick  sort](11.gif)
 
 
 
