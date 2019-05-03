@@ -35,9 +35,9 @@ simple example of java swing
 ![冒牌排序 bubble  sort](10.gif)
 ###  快速排序
 ![快速排序 quick  sort](11.gif)
-
+随机快速排序
 ![随机快速排序 Random  quick sort](12.gif)
-
+双路快速排序
 ![双路快速排序 Quick  sort 2 ways](13.gif)
 
 
