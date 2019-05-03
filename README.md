@@ -39,6 +39,8 @@ simple example of java swing
 ![随机快速排序 Random  quick sort](12.gif)
 双路快速排序
 ![双路快速排序 Quick  sort 2 ways](13.gif)
+三路快速排序
+![双路快速排序 Quick  sort 3 ways](14.gif)
 
 
 
