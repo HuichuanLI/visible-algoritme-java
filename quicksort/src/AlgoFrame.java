@@ -37,9 +37,9 @@ public class AlgoFrame extends JFrame {
     }
 
     // TODO: 设置自己的数据
-    private QuickSortData data;
+    private QuickSortData2Ways data;
 
-    public void render(QuickSortData data) {
+    public void render(QuickSortData2Ways data) {
         this.data = data;
         repaint();
     }
@@ -69,19 +69,23 @@ public class AlgoFrame extends JFrame {
             // 通过使用 hepler
             int w = canvasHeight / data.N();
             for (int i = 0; i < data.N(); i++) {
-                if(i >= data.l && i <= data.r){
-                    AlgoVisHelper.setColor(g2d,AlgoVisHelper.Green);
-                }else{
-                    AlgoVisHelper.setColor(g2d,AlgoVisHelper.Grey);
+                if (i >= data.l && i <= data.r) {
+                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.Green);
+                } else {
+                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.Grey);
                 }
 
-                if(i == data.curElement)
-                    AlgoVisHelper.setColor(g2d,AlgoVisHelper.Indigo);
-                if(i == data.curPivot)
-                    AlgoVisHelper.setColor(g2d,AlgoVisHelper.Blue);
-                if(data.fixedPivots[i])
-                    AlgoVisHelper.setColor(g2d,AlgoVisHelper.Red);
-                AlgoVisHelper.fillRectangle(g2d,i*w,canvasHeight-data.get(i),w-1,data.get(i));
+                if (i >= data.l + 1 && i < data.curElementL)
+                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
+
+                if (i >= data.curElementR + 1 && i < data.r)
+                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
+
+                if (i == data.curPivot)
+                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.Blue);
+                if (data.fixedPivots[i])
+                    AlgoVisHelper.setColor(g2d, AlgoVisHelper.Red);
+                AlgoVisHelper.fillRectangle(g2d, i * w, canvasHeight - data.get(i), w - 1, data.get(i));
 
             }
         }
