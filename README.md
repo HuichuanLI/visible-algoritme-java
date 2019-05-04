@@ -42,7 +42,8 @@ simple example of java swing
 三路快速排序
 ![双路快速排序 Quick  sort 3 ways](14.gif)
 
-
+### 堆排序
+![堆排序 Heap sort](15.gif)
 
 
 
