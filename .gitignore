@@ -10,3 +10,5 @@ GUItest/\.idea/
 \.idea/
 
 *.class
+
+*.iml
