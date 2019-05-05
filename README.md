@@ -48,7 +48,8 @@ simple example of java swing
 ## Chapitre 5 迷宫遍历可视化
 ![迷宫 Maze](1.png)
 
-深度优先遍历DFS 
+递归深度优先遍历DFS 
 ![DFS Maze](16.gif)
 
-
+非递归深度优先遍历DFS 
+![DFS Maze](17.gif)
