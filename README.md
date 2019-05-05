@@ -19,7 +19,7 @@ simple example of java swing
 ![蒙特卡洛](4.gif)
 最后能算出 ：3.147878787878788
 
-## Chapitre 5 排序可视化
+## Chapitre 4 排序可视化
 
 ### 选择排序
 
@@ -45,5 +45,10 @@ simple example of java swing
 ### 堆排序
 ![堆排序 Heap sort](15.gif)
 
+## Chapitre 5 迷宫遍历可视化
+![迷宫 Maze](1.png)
+
+深度优先遍历DFS 
+![DFS Maze](16.gif)
 
 
