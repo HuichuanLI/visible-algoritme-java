@@ -3,6 +3,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class AlgoVisualizer {
@@ -33,13 +34,13 @@ public class AlgoVisualizer {
         // TODO: 编写自己的动画逻辑
         setData(-1, -1, true);
 
-        Stack<Postion> stack = new Stack<>();
+        LinkedList<Postion> list = new LinkedList<>();
         Postion entrance = new Postion(data.getEntranceX(), data.getEntranceY());
-        stack.push(entrance);
+        list.addLast(entrance);
         data.visited[entrance.getX()][entrance.getY()] = true;
 
-        while (!stack.empty()) {
-            Postion curPos = stack.pop();
+        while (list.size() != 0) {
+            Postion curPos = list.pop();
             setData(curPos.getX(), curPos.getY(), true);
 
             if (curPos.getX() == data.getExitX() && curPos.getY() == data.getExitY()){
@@ -53,7 +54,7 @@ public class AlgoVisualizer {
                 int newY = curPos.getY()+d[i][1];
 
                 if(data.inArea(newX,newY) && !data.visited[newX][newY] && data.getMaze(newX,newY)!= MazeData.WALL){
-                    stack.push(new Postion(newX,newY,curPos));
+                    list.addLast(new Postion(newX,newY,curPos));
                     data.visited[newX][newY] = true;
                 }
             }

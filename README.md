@@ -53,3 +53,9 @@ simple example of java swing
 
 非递归深度优先遍历DFS 
 ![DFS Maze](17.gif)
+
+标出路径
+![DFS Maze](18.gif)
+
+广度优先遍历DFS 
+![DFS Maze](19.gif)
