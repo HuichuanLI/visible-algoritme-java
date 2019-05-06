@@ -59,3 +59,15 @@ simple example of java swing
 
 广度优先遍历DFS 
 ![DFS Maze](19.gif)
+
+## Chapitre 6 生成迷宫
+
+非递归深度优先遍历
+![迷宫 Maze](20.gif)
+
+
+随机队列遍历
+![迷宫 Maze](21.gif)
+
+随机队列遍历添加阴影
+![迷宫 Maze](22.gif)
