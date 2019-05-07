@@ -71,3 +71,7 @@ simple example of java swing
 
 随机队列遍历添加阴影
 ![迷宫 Maze](22.gif)
+
+
+更加随机的迷宫+迷宫求解 + 使用栈队列实现
+![迷宫 Maze](23.gif)
