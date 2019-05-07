@@ -75,3 +75,10 @@ simple example of java swing
 
 更加随机的迷宫+迷宫求解 + 使用栈队列实现
 ![迷宫 Maze](23.gif)
+
+## Chapitre 7 扫雷小游戏
+### 为了实现扫雷的随机放置 引入FIsher-Yates 算法 目的实现一个概率均等的算法 : 原理比较简单 就是每次从z数组去除一个位置进行交换 
+![扫雷游戏 Miner](2.png)
+
+实现功能：flood fill 算法  并且 点击
+![扫雷游戏 Miner](24.gif)
