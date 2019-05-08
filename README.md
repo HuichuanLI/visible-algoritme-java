@@ -82,3 +82,11 @@ simple example of java swing
 
 实现功能：flood fill 算法  并且 点击
 ![扫雷游戏 Miner](24.gif)
+
+
+## Chapitre 8  Move the box
+### android move the box 破解程序
+可以获得答案
+
+Game : [game](https://play.google.com/store/apps/details?id=ua.co.cts.sideup&hl=en)
+![实现游戏 Miner](3.png)
