@@ -90,3 +90,10 @@ simple example of java swing
 
 Game : [game](https://play.google.com/store/apps/details?id=ua.co.cts.sideup&hl=en)
 ![实现游戏 Miner](3.png)
+
+## Chapitre 9  分形图
+### vicsek 分形图
+![分形图](4.png)
+
+递归 0- 6 深度
+![分形图](25.gif)
