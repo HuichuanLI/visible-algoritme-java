@@ -85,21 +85,32 @@ public class AlgoFrame extends JFrame {
 ////        }
 
         private void drawFractal(Graphics2D g2d, int x, int y, int w, int h, int depth) {
+            int w_3 = w / 3;
+            int h_3 = h / 3;
+
             if (depth == data.depth) {
-                AlgoVisHelper.fillRectangle(g2d, x, y, w, h);
+                AlgoVisHelper.fillRectangle(g2d, x + w_3, y + h_3, w_3, h_3);
                 return;
             }
             if (w <= 1 || h <= 1) {
-                AlgoVisHelper.fillRectangle(g2d, x, y, Math.max(w, 1), Math.max(h, 1));
+//                AlgoVisHelper.fillRectangle(g2d, x, y, Math.max(w, 1), Math.max(h, 1));
                 return;
             }
-            int w_3 = w / 3;
-            int h_3 = h / 3;
-            drawFractal(g2d,x,y,w_3,h_3,depth+1);
-            drawFractal(g2d,x+2*w_3,y,w_3,h_3,depth+1);
-            drawFractal(g2d,x+w_3,y+w_3,w_3,h_3,depth+1);
-            drawFractal(g2d,x,y+w_3*2,w_3,h_3,depth+1);
-            drawFractal(g2d,x+w_3*2,y+w_3*2,w_3,h_3,depth+1);
+
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    if (i == 1 && j == 1)
+                        AlgoVisHelper.fillRectangle(g2d, x + w_3, y + h_3, w_3, h_3);
+                    else
+                        drawFractal(g2d,x+i*w_3,y+j*h_3,w_3,h_3,depth+1);
+                }
+            }
+//            drawFractal(g2d,x,y,w_3,h_3,depth+1);
+//            drawFractal(g2d,x+2*w_3,y,w_3,h_3,depth+1);
+//            drawFractal(g2d,x+w_3,y+w_3,w_3,h_3,depth+1);
+//            drawFractal(g2d,x,y+w_3*2,w_3,h_3,depth+1);
+//            drawFractal(g2d,x+w_3*2,y+w_3*2,w_3,h_3,depth+1);
+
 
         }
 

@@ -18,7 +18,7 @@ public class AlgoVisualizer {
 
         // 初始化视图
         EventQueue.invokeLater(() -> {
-            frame = new AlgoFrame("Fractel Visualizer", sceneWidth, sceneHeight);
+            frame = new AlgoFrame("Sierpink Visualizer", sceneWidth, sceneHeight);
             frame.addKeyListener(new AlgoKeyListener());
 
             // TODO: 根据情况决定是否加入键盘鼠标事件监听器

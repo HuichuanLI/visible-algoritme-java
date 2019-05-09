@@ -97,3 +97,7 @@ Game : [game](https://play.google.com/store/apps/details?id=ua.co.cts.sideup&hl=
 
 递归 0- 6 深度
 ![分形图](25.gif)
+
+### Sierpinski 分形图
+
+![分形图](26.gif)
