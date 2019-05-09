@@ -104,3 +104,7 @@ Game : [game](https://play.google.com/store/apps/details?id=ua.co.cts.sideup&hl=
 ![分形图](26.gif)
 三角形
 ![分形图](27.gif)
+雪花 snow
+![分形图](28.gif)
+分形树 tree
+![分形图](29.gif)

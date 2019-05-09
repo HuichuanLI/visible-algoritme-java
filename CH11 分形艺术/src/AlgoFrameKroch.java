@@ -1,12 +1,12 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class AlgoFrameTrangle extends JFrame {
+public class AlgoFrameKroch extends JFrame {
 
     private int canvasWidth;
     private int canvasHeight;
 
-    public AlgoFrameTrangle(String title, int canvasWidth, int canvasHeight) {
+    public AlgoFrameKroch(String title, int canvasWidth, int canvasHeight) {
 
         super(title);
 
@@ -23,7 +23,7 @@ public class AlgoFrameTrangle extends JFrame {
         setVisible(true);
     }
 
-    public AlgoFrameTrangle(String title) {
+    public AlgoFrameKroch(String title) {
 
         this(title, 1024, 768);
     }
@@ -67,39 +67,37 @@ public class AlgoFrameTrangle extends JFrame {
             // 具体绘制
             // TODO： 绘制自己的数据data
             // 通过使用 hepler
-            //drawCircle(g2d, data.getStartX(), data.getStartY(), data.getStartR(), 0);
-            drawTriangle(g2d, 0, canvasHeight, canvasWidth, 0);
+
+            drawLines(g2d, 0, canvasHeight - 3, canvasWidth, 0, 0);
         }
 
-        private void drawTriangle(Graphics2D g2d, int Ax, int Ay, int side, int depth) {
-            if (side <= 1) {
-                AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
-                AlgoVisHelper.fillRectangle(g2d, Ax, Ay, 1, 1);
+        private void drawLines(Graphics2D g2d, double x1, double y1, double side, double angle, int depth) {
+            if (side <= 0)
+                return;
+            if (depth == data.depth) {
+                double x2 = x1 + side * Math.cos(Math.PI / 180.0 * angle);
+                double y2 = y1 - side * Math.sin(Math.PI / 180.0 * angle);
+
+                AlgoVisHelper.setColor(g2d, AlgoVisHelper.Blue);
+                AlgoVisHelper.drawLine(g2d, x1, y1, x2, y2);
                 return;
             }
-            int Bx = Ax + side;
-            int By = Ay;
 
-            int Cx = Ax + side / 2;
-            int Cy =     Ay - (int) (Math.sin(60 * Math.PI / 180.0) * side);
+            double side_3 = side / 3;
+            double x2 = x1 + side_3 * Math.cos(angle * Math.PI /180.0);
+            double y2 = y1 - side_3 * Math.sin(angle * Math.PI /180.0);
+            drawLines(g2d,x1,y1,side_3,angle,depth+1);
 
-            if (depth == data.depth) {
-                AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
-                AlgoVisHelper.fillTriangle(g2d, Ax, Ay, Bx, By, Cx, Cy);
-            }
+            double x3 = x2 + side_3 * Math.cos((angle+60.0) * Math.PI /180.0);
+            double y3 = y2 - side_3 * Math.sin((angle+60.0) * Math.PI /180.0);
+            drawLines(g2d,x2,y2,side_3,angle+60.0,depth+1);
 
-            int AB_centerx = (Ax + Bx) / 2;
-            int AB_centery = (Ay + By) / 2;
-
-            int AC_centerx = (Ax + Cx) / 2;
-            int AC_centery = (Ay + Cy) / 2;
-
-            int BC_centerx = (Bx + Cx) / 2;
-            int BC_centery = (By + Cy) / 2;
-            drawTriangle(g2d, Ax, Ay, side / 2, depth + 1);
-            drawTriangle(g2d, AC_centerx, AC_centery, side / 2, depth + 1);
-            drawTriangle(g2d, AB_centerx, AB_centery, side / 2, depth + 1);
+            double x4 = x3 + side_3 * Math.cos((angle - 60) * Math.PI /180.0);
+            double y4 = y3 - side_3 * Math.sin((angle - 60) * Math.PI /180.0);
+            drawLines(g2d,x3,y3,side_3,angle-60.0,depth+1);
+            drawLines(g2d,x4,y4,side_3,angle,depth+1);
             return;
+
 
         }
 

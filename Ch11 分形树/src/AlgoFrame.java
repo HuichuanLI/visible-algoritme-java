@@ -1,12 +1,12 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class AlgoFrameTrangle extends JFrame {
+public class AlgoFrame extends JFrame {
 
     private int canvasWidth;
     private int canvasHeight;
 
-    public AlgoFrameTrangle(String title, int canvasWidth, int canvasHeight) {
+    public AlgoFrame(String title, int canvasWidth, int canvasHeight) {
 
         super(title);
 
@@ -23,7 +23,7 @@ public class AlgoFrameTrangle extends JFrame {
         setVisible(true);
     }
 
-    public AlgoFrameTrangle(String title) {
+    public AlgoFrame(String title) {
 
         this(title, 1024, 768);
     }
@@ -68,37 +68,30 @@ public class AlgoFrameTrangle extends JFrame {
             // TODO： 绘制自己的数据data
             // 通过使用 hepler
             //drawCircle(g2d, data.getStartX(), data.getStartY(), data.getStartR(), 0);
-            drawTriangle(g2d, 0, canvasHeight, canvasWidth, 0);
+            drawFractal(g2d, canvasWidth / 2, canvasHeight, canvasHeight, 0, 0);
         }
 
-        private void drawTriangle(Graphics2D g2d, int Ax, int Ay, int side, int depth) {
-            if (side <= 1) {
-                AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
-                AlgoVisHelper.fillRectangle(g2d, Ax, Ay, 1, 1);
+
+        private void drawFractal(Graphics2D g2d, double x1, double y1, double side, double angle, int depth) {
+            double side_2 = side / 2;
+            if (side_2 <= 0)
                 return;
-            }
-            int Bx = Ax + side;
-            int By = Ay;
-
-            int Cx = Ax + side / 2;
-            int Cy =     Ay - (int) (Math.sin(60 * Math.PI / 180.0) * side);
-
             if (depth == data.depth) {
-                AlgoVisHelper.setColor(g2d, AlgoVisHelper.LightBlue);
-                AlgoVisHelper.fillTriangle(g2d, Ax, Ay, Bx, By, Cx, Cy);
+                double x2 = x1 - side * Math.sin(angle * Math.PI / 180.0);
+                double y2 = y1 - side * Math.cos(angle * Math.PI / 180.0);
+                AlgoVisHelper.setColor(g2d, AlgoVisHelper.Indigo);
+                AlgoVisHelper.drawLine(g2d, x1, y1, x2, y2);
+                return;
+
             }
 
-            int AB_centerx = (Ax + Bx) / 2;
-            int AB_centery = (Ay + By) / 2;
+            double x2 = x1 - side_2 * Math.sin(angle * Math.PI / 180.0);
+            double y2 = y1 - side_2 * Math.cos(angle * Math.PI / 180.0);
+            AlgoVisHelper.setColor(g2d, AlgoVisHelper.Indigo);
+            AlgoVisHelper.drawLine(g2d, x1, y1, x2, y2);
 
-            int AC_centerx = (Ax + Cx) / 2;
-            int AC_centery = (Ay + Cy) / 2;
-
-            int BC_centerx = (Bx + Cx) / 2;
-            int BC_centery = (By + Cy) / 2;
-            drawTriangle(g2d, Ax, Ay, side / 2, depth + 1);
-            drawTriangle(g2d, AC_centerx, AC_centery, side / 2, depth + 1);
-            drawTriangle(g2d, AB_centerx, AB_centery, side / 2, depth + 1);
+            drawFractal(g2d,x2,y2,side_2,angle+data.spiltAngle/2,depth+1);
+            drawFractal(g2d,x2,y2,side_2,angle-data.spiltAngle/2,depth+1);
             return;
 
         }

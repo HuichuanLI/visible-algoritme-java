@@ -8,17 +8,16 @@ public class AlgoVisualizer {
 
     // TODO: 创建自己的数据
     private FractalData data;        // 数据 model
-    private AlgoFrameKroch frame;    // 视图 view
+    private AlgoFrame frame;    // 视图 view
 
-    public AlgoVisualizer(int maxDepth,int side) {
+    public AlgoVisualizer(int sceneWidth,int sceneHeight,int maxDepth,double spiltAngle) {
 
-        data = new FractalData(maxDepth);
-        int sceneWidth = side;
-        int sceneHeight = side/3;
+        data = new FractalData(maxDepth,spiltAngle);
+
 
         // 初始化视图
         EventQueue.invokeLater(() -> {
-            frame = new AlgoFrameKroch("Sierpink Visualizer", sceneWidth, sceneHeight);
+            frame = new AlgoFrame("Sierpink Visualizer", sceneWidth, sceneHeight);
             frame.addKeyListener(new AlgoKeyListener());
 
             // TODO: 根据情况决定是否加入键盘鼠标事件监听器
@@ -58,8 +57,11 @@ public class AlgoVisualizer {
 
         int maxDepth = 6;
         int side = 900;
+        double spiltAngle = 60.0;
+        int sceneWidth = 800;
+        int sceneHeight = 800;
 
         // TODO: 根据需要设置其他参数，初始化visualizer
-        AlgoVisualizer visualizer = new AlgoVisualizer(maxDepth,side);
+        AlgoVisualizer visualizer = new AlgoVisualizer(sceneWidth,sceneHeight,maxDepth,spiltAngle);
     }
 }
