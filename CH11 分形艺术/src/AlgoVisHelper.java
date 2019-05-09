@@ -90,4 +90,14 @@ public class AlgoVisHelper {
         int h = metrics.getDescent();
         g.drawString(text, centerx - w/2, centery + h);
     }
+
+    public static void fillTriangle(Graphics2D g,int x1,int y1,int x2,int y2,int x3,int y3){
+        GeneralPath path = new GeneralPath();
+        path.moveTo(x1,y1);
+        path.lineTo(x2,y2);
+        path.lineTo(x3,y3);
+        path.closePath();
+        g.fill(path);
+
+    }
 }

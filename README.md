@@ -100,4 +100,7 @@ Game : [game](https://play.google.com/store/apps/details?id=ua.co.cts.sideup&hl=
 
 ### Sierpinski 分形图
 
+正方形
 ![分形图](26.gif)
+三角形
+![分形图](27.gif)

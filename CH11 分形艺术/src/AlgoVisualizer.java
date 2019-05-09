@@ -8,17 +8,17 @@ public class AlgoVisualizer {
 
     // TODO: 创建自己的数据
     private FractalData data;        // 数据 model
-    private AlgoFrame frame;    // 视图 view
+    private AlgoFrameTrangle frame;    // 视图 view
 
     public AlgoVisualizer(int maxDepth) {
 
         data = new FractalData(maxDepth);
-        int sceneWidth = (int) (Math.pow(3, maxDepth));
-        int sceneHeight = (int) (Math.pow(3, maxDepth));
+        int sceneWidth = (int) (Math.pow(2, maxDepth));
+        int sceneHeight = (int) (Math.pow(2, maxDepth));
 
         // 初始化视图
         EventQueue.invokeLater(() -> {
-            frame = new AlgoFrame("Sierpink Visualizer", sceneWidth, sceneHeight);
+            frame = new AlgoFrameTrangle("Sierpink Visualizer", sceneWidth, sceneHeight);
             frame.addKeyListener(new AlgoKeyListener());
 
             // TODO: 根据情况决定是否加入键盘鼠标事件监听器
@@ -56,7 +56,7 @@ public class AlgoVisualizer {
 
     public static void main(String[] args) {
 
-        int maxDepth = 6;
+        int maxDepth = 9;
 
         // TODO: 根据需要设置其他参数，初始化visualizer
         AlgoVisualizer visualizer = new AlgoVisualizer(maxDepth);
